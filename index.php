@@ -37,7 +37,7 @@
 		</div>
 
 		<div class="hidden">
-			<input type="text" id="password" />
+			<input type="text" id="password" readyonly="readyonly" tabindex="-1" />
 		</div>
 
 		<script type="text/javascript">
@@ -51,7 +51,7 @@
 				$('button').corner('round 4px');
 				$('#box').corner('round bottom');
 
-				$('input').change(function() {
+				$('#generate input').change(function() {
 					$('#password').val($.md5($('#root').val() + $('#master').val()));
 				});
 
