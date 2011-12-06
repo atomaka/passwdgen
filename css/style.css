@@ -1,0 +1,44 @@
+html {
+	
+}
+
+body {
+	margin: 0px;
+	background-color: #a0a0a0;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+}
+
+input {
+	background: #fff;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+
+	padding: 2px 2px;
+	width: 325px;
+	border: 2px;
+	border-color: #b8b8b8 #e2e2e2 #e2e2e2 #b8b8b8;
+	border-style: solid;
+}
+
+input.focus {
+	background: #ebfdd7;
+}
+
+label {
+	cursor: pointer;
+	display: block;
+	margin-bottom: 2px;
+	color: #000;
+	font-weight: bold;
+}
+
+#wrapper {
+	width: 380px;
+	margin: auto;
+	margin-top: 200px;	
+}
+
+#
