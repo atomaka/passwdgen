@@ -60,7 +60,10 @@
 					copy: 		function() {
 						return $('#password').val()
 					},
-					afterCopy: 	function() {}
+					afterCopy: 	function() {
+						$.post('update.php', { site: $('#root').val() },
+							function(data) {});
+					}
 				});
 			});
 		</script>
