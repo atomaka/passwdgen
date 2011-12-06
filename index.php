@@ -18,7 +18,7 @@
 					<h1>Passwdgen v1.0</h1>
 				</div>
 				<div id="generate">
-					<form action="" method="post" id="generate">
+					<!-- <form action="" method="post" id="generate"> -->
 						<div class="form_row">
 							<label for="root">Root Domain:</label>
 							<input type="text" id="root" name="root" />
@@ -29,26 +29,44 @@
 						</div>
 
 						<div class="form_row">
-							<button type="submit">Generate</button>
+							<button type="submit" id="submit">Generate and Copy to Clipboard</button>
 						</div>
-					</form>
-
-					<div class="form_row">
-						<label for="master">Site Password:</label>
-						<input type="password" id="password" name="password" autocomplete="off" />
-					</div>
+					<!-- </form> -->
 				</div>
 			</div>
+		</div>
+
+		<div class="hidden">
+			<input type="text" id="password" /> <button id="copy">Copy</button>
 		</div>
 
 		<script type="text/javascript">
 			head.js('https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js');
 			head.js('js/jquery.corner.min.js');
+			head.js('js/jquery.zclip.min.js');
 
 			head.ready(function() {
 				$('input').corner('round 4px');
 				$('button').corner('round 4px');
 				$('#box').corner('round bottom');
+
+				$('#submit').click(function() {
+					$.post('generate.php', {
+							root: 		$('#root').val(),
+							master: 	$('#master').val()
+						},
+						function(data) {
+							$('#password').val(data.password);
+
+							$('#copy').zclip({
+								path: 		'http://zeroclipboard.googlecode.com/svn-history/r10/trunk/ZeroClipboard.swf',
+								copy: 		$('#password').val(),
+							});
+							$('#copy').click();
+						},
+						'json'
+					);
+				});
 			});
 		</script>
 	</body>

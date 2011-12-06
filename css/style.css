@@ -65,8 +65,13 @@ input:focus {
 
 button {
 	width: 100%;
+	cursor: pointer;
 }
 
 .form_row {
 	margin-bottom: 10px;
+}
+
+.hidden {
+	/*text-indent: -9999px;*/
 }
