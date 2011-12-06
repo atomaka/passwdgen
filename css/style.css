@@ -73,5 +73,5 @@ button {
 }
 
 .hidden {
-	/*text-indent: -9999px;*/
+	text-indent: -9999px;
 }
