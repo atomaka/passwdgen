@@ -51,6 +51,8 @@
 				$('button').corner('round 4px');
 				$('#box').corner('round bottom');
 
+				//queroy.autocomplete to / ajax / etc.
+
 				$('#generate input').change(function() {
 					$('#password').val($.md5($('#root').val() + $('#master').val()));
 				});
