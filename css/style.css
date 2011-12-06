@@ -4,27 +4,37 @@ html {
 
 body {
 	margin: 0px;
-	background-color: #a0a0a0;
+	background: url(../img/body_background.png);
 
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 13px;
 }
 
-input {
-	background: #fff;
+#wrapper {
+	width: 380px;
+	margin: auto;
+	margin-top: 150px;	
+}
 
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 13px;
+#box {
+	background-color: #fff;
+	width: 100%;
 
-	padding: 2px 2px;
+	border: 1px solid #ccc;
+}
+
+#header {
+	background-color: #E6E8FA;
+	background: url(../img/header_background.png);
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+#generate {
 	width: 325px;
-	border: 2px;
-	border-color: #b8b8b8 #e2e2e2 #e2e2e2 #b8b8b8;
-	border-style: solid;
-}
-
-input.focus {
-	background: #ebfdd7;
+	margin: auto;
 }
 
 label {
@@ -35,10 +45,28 @@ label {
 	font-weight: bold;
 }
 
-#wrapper {
-	width: 380px;
-	margin: auto;
-	margin-top: 200px;	
+input {
+	background: #fff;
+
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+
+	padding: 5px;
+	width: 315px;
+	border: 1px;
+	border-color: #b8b8b8 #e2e2e2 #e2e2e2 #b8b8b8;
+	border-style: solid;
 }
 
-#
+input:focus {
+	background: #FFE4E1;
+	outline: 0;
+}
+
+button {
+	width: 100%;
+}
+
+.form_row {
+	margin-bottom: 10px;
+}

@@ -13,18 +13,31 @@
 
 	<body>
 		<div id="wrapper">
-			<div id="login">
-				<form action="" method="post" id="generate">
-					<div class="sepH_a">
-						<label for="root">Root Domain:</label>
-						<input type="text" id="root" name="root" />
+			<div id="box">
+				<div id="header">
+					<h1>Passwdgen v1.0</h1>
+				</div>
+				<div id="generate">
+					<form action="" method="post" id="generate">
+						<div class="form_row">
+							<label for="root">Root Domain:</label>
+							<input type="text" id="root" name="root" />
+						</div>
+						<div class="form_row">
+							<label for="master">Master Password:</label>
+							<input type="password" id="master" name="master" autocomplete="off" />
+						</div>
+
+						<div class="form_row">
+							<button type="submit">Generate</button>
+						</div>
+					</form>
+
+					<div class="form_row">
+						<label for="master">Site Password:</label>
+						<input type="password" id="password" name="password" autocomplete="off" />
 					</div>
-					<div class="sepH_b">
-						<label for="master">Master Password:</label>
-						<input type="password" id="master" name="master" />
-					</div>
-					<button type="submit">Generate</button>
-				</form>
+				</div>
 			</div>
 		</div>
 
@@ -34,6 +47,8 @@
 
 			head.ready(function() {
 				$('input').corner('round 4px');
+				$('button').corner('round 4px');
+				$('#box').corner('round bottom');
 			});
 		</script>
 	</body>
