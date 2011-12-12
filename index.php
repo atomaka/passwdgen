@@ -45,6 +45,7 @@
 			head.js('js/jquery.corner.min.js');
 			head.js('js/jquery.zclip.min.js');
 			head.js('js/jquery.md5.min.js');
+			head.js('js/rules.js');
 
 			head.ready(function() {
 				$('input').corner('round 4px');
@@ -54,7 +55,11 @@
 				//queroy.autocomplete to / ajax / etc.
 
 				$('#generate input').change(function() {
-					$('#password').val($.md5($('#root').val() + $('#master').val()));
+					if($('#root').val() in special) {
+						$('#password').val(special[$('#root').val()]($.md5($('#root').val() + $('#master').val())));
+					} else {
+						$('#password').val($.md5($('#root').val() + $('#master').val()));
+					}
 				});
 
 				$('#copy').zclip({
@@ -62,10 +67,7 @@
 					copy: 		function() {
 						return $('#password').val()
 					},
-					afterCopy: 	function() {
-						$.post('update.php', { site: $('#root').val() },
-							function(data) {});
-					}
+					afterCopy: 	function() {}
 				});
 			});
 		</script>
