@@ -52,13 +52,20 @@
 				$('button').corner('round 4px');
 				$('#box').corner('round bottom');
 
-				//queroy.autocomplete to / ajax / etc.
 
 				$('#generate input').change(function() {
-					if($('#root').val() in special) {
-						$('#password').val(special[$('#root').val()]($.md5($('#root').val() + $('#master').val())));
+					var root = $('#root').val();
+					var master = $('#master').val()
+					var hash = $.md5(root + master);
+
+					hash = hash.replace(/[a-f]/, function(alpha) {
+						return alpha.toUpperCase();
+					});
+
+					if(root in special) {
+						$('#password').val(special[root](hash));
 					} else {
-						$('#password').val($.md5($('#root').val() + $('#master').val()));
+						$('#password').val(hash);
 					}
 				});
 
