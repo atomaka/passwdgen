@@ -76,7 +76,7 @@
 
       $(document).keydown(function(e) {
         var keycode = e.keycode || e.which;
-        if(keycode == 17) {
+        if(keycode == 17 || keycode == 91) {
           lastFocus = currentFocus;
           $('#password').focus().select();
         }
@@ -84,7 +84,7 @@
 
       $(document).keyup(function(e) {
         var keycode = e.keycode || e.which;
-        if(keycode == 17) {
+        if(keycode == 17 || keycode == 91) {
           lastFocus.focus();
         }
       });
