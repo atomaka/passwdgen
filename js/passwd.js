@@ -3,18 +3,20 @@ $(document).ready(function() {
 });
 
 $('#generate input').on('input', function() {
-  var hash = $.md5($('#root').val() + ('#master').val());
+  hash = generatePassword($('#root').val(), $('#master').val());
 
-  hash = hash.replace(/[a-f]/, function(alpha) {
+  $('#password').val(specialCase($('#root').val(), hash));
+});
+
+function generatePassword(root, master) {
+  return $.md5(root + master).replace(/[a-f]/, function(alpha) {
     return alpha.toUpperCase();
   });
+}
 
-  if($('#root').val() in special) {
-    $('#password').val(special[$('#root').val()](hash));
-  } else {
-    $('#password').val(hash);
-  }
-});
+function specialCase(root, hash) {
+  return (special[root] != undefined) ? special[root](hash) : hash;
+}
 
 var currentFocus;
 var lastFocus;
