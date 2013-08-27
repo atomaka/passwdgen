@@ -3,16 +3,14 @@ $(document).ready(function() {
 });
 
 $('#generate input').on('input', function() {
-  var root = $('#root').val();
-  var master = $('#master').val()
-  var hash = $.md5(root + master);
+  var hash = $.md5($('#root').val() + ('#master').val());
 
   hash = hash.replace(/[a-f]/, function(alpha) {
     return alpha.toUpperCase();
   });
 
-  if(root in special) {
-    $('#password').val(special[root](hash));
+  if($('#root').val() in special) {
+    $('#password').val(special[$('#root').val()](hash));
   } else {
     $('#password').val(hash);
   }
