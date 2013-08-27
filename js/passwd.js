@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  $('input').corner('round 4px');
-  $('button').corner('round 4px');
-  $('#box').corner('round bottom');
-
   $('#root').focus();
 });
 
